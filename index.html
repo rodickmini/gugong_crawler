@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <canvas id="c" width="4902" height="3354"></canvas>
+  <canvas id="c" width="22446" height="1032"></canvas>
   <script>
     var canvas = document.getElementById('c');
     var ctx = canvas.getContext('2d');
@@ -23,8 +23,8 @@
       img.src = src
     }
 
-    for(let x = 0; x <= 18; x++) {
-      for(let y = 0; y <= 12; y++) {
+    for(let x = 0; x <= 86; x++) {
+      for(let y = 0; y <= 3; y++) {
         drawAAA(ctx, `images/${x}_${y}.jpg`, width * x, height * y)
       }
     }

@@ -39,19 +39,26 @@ async function downloadImage (url, fileName) {
   .
   8...120
 
-  淡墨秋山 https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2009/1107/img0004_files/13/
+  淡墨秋山 https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2009/1107/img0004_files/13/${i}_${j}.jpg
   0...18
   .
   .
   .
-  12...18
+  12
+
+  兰亭 https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2008/1628/img0010_files/15/${i}_${j}.jpg
+  0...86
+  .
+  .
+  .
+  3
   
 
   */
 let i = 0, j = 0
-for(i = 0; i <= 18; i++) {
-  for(j = 0; j <= 12; j++) {
-     let url = `https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2009/1107/img0004_files/13/${i}_${j}.jpg`
+for(i = 0; i <= 86; i++) {
+  for(j = 0; j <= 3; j++) {
+    let url = `https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2008/1628/img0010_files/15/${i}_${j}.jpg`
     let fileName = `${i}_${j}.jpg`
     downloadImage(url, fileName)
   }
