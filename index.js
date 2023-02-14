@@ -56,9 +56,9 @@ async function downloadImage (url, fileName) {
 
   */
 let i = 0, j = 0
-for(i = 0; i <= 86; i++) {
-  for(j = 0; j <= 3; j++) {
-    let url = `https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2008/1628/img0010_files/15/${i}_${j}.jpg`
+for(i = 0; i <= 120; i++) {
+  for(j = 0; j <= 8; j++) {
+    let url = `https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2008/1629/img0006_files/15/${i}_${j}.jpg`
     let fileName = `${i}_${j}.jpg`
     downloadImage(url, fileName)
   }
