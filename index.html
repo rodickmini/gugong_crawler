@@ -7,28 +7,50 @@
   <title>Document</title>
 </head>
 <body>
-  <canvas id="c" width="22446" height="1032"></canvas>
-  <script>
-    var canvas = document.getElementById('c');
-    var ctx = canvas.getContext('2d');
-    let width = 258, height = 258;
+  <script type="module">
 
-    function drawAAA(ctx, src, x, y) {
-      
+    // 以下参数需要配置：
+    const XML_PATH = 'https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2008/0011/img0001.xml'; //访问这个地址，获取canvas宽高和CANVAS_SIZE.tile_size
+    const CANVAS_SIZE = {
+      width: 4719,
+      height: 3704,
+      tile_size: 256
+    }
+    const TILE_BASE_URL = 'https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2008/0011/img0001_files/13';
+    const MAX_COLUMN = 18;
+    const MAX_ROW = 14;
+
+
+    function createCanvas(width = 500, height = 500, cb) {
+      let canvas = document.createElement('canvas');
+
+      canvas.id = "canvas";
+      canvas.width = width;
+      canvas.height = height;
+
+      let body = document.getElementsByTagName("body")[0];
+      body.appendChild(canvas);
+
+      cb(canvas);
+    }
+
+    createCanvas(CANVAS_SIZE.width, CANVAS_SIZE.height, function(canvas) {
+      let ctx = canvas.getContext("2d");
+      for(let x = 0; x <= MAX_COLUMN; x++) {
+        for(let y = 0; y <= MAX_ROW; y++) {
+          draw(ctx, `${TILE_BASE_URL}/${x}_${y}.jpg`, CANVAS_SIZE.tile_size * x, CANVAS_SIZE.tile_size * y)
+        }
+      }
+    });
+
+    function draw(ctx, src, x, y) {
       var img = new Image();
       img.onload = function(){
         console.log(x, y)
-        ctx.drawImage(img, x, y, width, height)
+        ctx.drawImage(img, x, y, CANVAS_SIZE.tile_size, CANVAS_SIZE.tile_size)
       }
       img.src = src
     }
-
-    for(let x = 0; x <= 86; x++) {
-      for(let y = 0; y <= 3; y++) {
-        drawAAA(ctx, `images/${x}_${y}.jpg`, width * x, height * y)
-      }
-    }
-
   </script>
 </body>
 </html>
