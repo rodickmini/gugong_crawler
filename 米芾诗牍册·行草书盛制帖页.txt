@@ -1,0 +1,10 @@
+// 以下参数需要配置：
+const XML_PATH = 'https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2009/1107/img0011.xml'; //访问这个地址，获取canvas宽高和CANVAS_SIZE.tile_size
+const CANVAS_SIZE = {
+  width: 4580,
+  height: 3116,
+  tile_size: 256
+}
+const TILE_BASE_URL = 'https://en.dpm.org.cn/tilegenerator/dest/files/image/8831/2009/1107/img0011_files/13';
+const MAX_COLUMN = 17;
+const MAX_ROW = 12;
