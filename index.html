@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
   <script type="module">
@@ -47,7 +53,12 @@
       var img = new Image();
       img.onload = function(){
         console.log(x, y)
-        ctx.drawImage(img, x, y, CANVAS_SIZE.tile_size, CANVAS_SIZE.tile_size)
+        if (img.width !== img.height) {
+          ctx.drawImage(img, x, y, img.width, img.height)
+        } else {
+          ctx.drawImage(img, x, y, CANVAS_SIZE.tile_size, CANVAS_SIZE.tile_size)
+        }
+        
       }
       img.src = src
     }
